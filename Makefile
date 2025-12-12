@@ -5,7 +5,9 @@ BINARY := emberd
 all: build
 
 build:
-	go build -o $(BINARY) ./...
+	# Build the main package at module root. Using `./...` with `-o <file>`
+	# attempts to write multiple packages to a single file which fails.
+	go build -v -o $(BINARY) .
 
 install: build
 	install -m 0755 $(BINARY) /usr/local/bin/$(BINARY)
