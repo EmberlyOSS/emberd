@@ -21,9 +21,6 @@ func Execute() {
 }
 
 func init() {
-	// ensure an explicit help command is available
-	rootCmd.SetHelpCommand(cobra.HelpCommand())
-
 	// version subcommand
 	var version = "v0.1.0"
 	versionCmd := &cobra.Command{
